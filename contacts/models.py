@@ -8,6 +8,7 @@ class Contract(models.Model):
     email = models.EmailField(max_length=100)
     message = models.TextField()
     project = models.ForeignKey(Project, on_delete=models.PROTECT, default=1)
+    sub_contractor = models.ForeignKey('Subcontractor', on_delete=models.CASCADE, default=1, related_name='contracts')
 
     def __str__(self):
         return self.name
@@ -19,5 +20,8 @@ class Subcontractor(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     message = models.TextField()
-    contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    contract = models.ManyToManyField(Contract)
+    project = models.ManyToManyField(Project)
+
+    def __str__(self):
+        return self.name
