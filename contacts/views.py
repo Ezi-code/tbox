@@ -18,3 +18,7 @@ class ContractDetail(RetrieveUpdateDestroyAPIView):
 class SubcontractorList(ListCreateAPIView):
     queryset = Subcontractor.objects.all()
     serializer_class = SubcontractorSerializer
+
+class SubcontractorDetail(RetrieveUpdateDestroyAPIView):
+    queryset = Subcontractor.objects.all()
+    serializer_class = SubcontractorSerializer

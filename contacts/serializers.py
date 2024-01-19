@@ -31,7 +31,7 @@ class SubcontractorSerializer(serializers.ModelSerializer):
     
     def update(self, Subcontractor, validated_data: dict):
         Subcontractor.name = validated_data.get('name', Subcontractor.name)
-        Subcontractor.project = validated_data.get('project', Subcontractor.project)
-        Subcontractor.contract = validated_data.get('contract', Subcontractor.contract)
+        Subcontractor.project.set(validated_data['project'])
+        Subcontractor.contract.set(validated_data['contract'])
         Subcontractor.save()
         return Subcontractor
