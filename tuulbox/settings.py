@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import accounts
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'contacts',
     'project',
     'rest_framework',
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -102,6 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+AUTH_USER_MODEL = "accounts.AccountHolder"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
