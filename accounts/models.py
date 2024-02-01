@@ -5,6 +5,8 @@ from django.core.validators import MinLengthValidator
 from django.contrib.auth.base_user import BaseUserManager
 import uuid
 from django.contrib.auth.models import AbstractUser
+from django.utils.translation import gettext as _
+
 
 class AccontManager(BaseUserManager):
     def get_queryset(self) -> QuerySet:
